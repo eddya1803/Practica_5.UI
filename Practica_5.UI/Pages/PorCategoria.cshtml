@@ -1,0 +1,46 @@
+﻿@page 
+
+@model Practica_5.UI.Pages.PorCategoriaModel
+@{
+    ViewData["Title"] = "PorCategoria page";
+}
+
+<div class="text-center">
+    <h1>Lista productos por categoria</h1>
+</div>
+<form action="/PorCategoria" method="post">
+    <div class="form-group">
+        <label asp-for="Codigo">Introduzca Codigo de la Categoria</label>
+        <input class="form-control" type="number" asp-for="Codigo" /> <br />
+        <button type="submit" class="btn btn-success">Desplegar productos</button>
+    </div>
+</form>
+<br />
+<div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Id Categoria</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var producto in Model.Productos)
+            {
+                <tr>
+                    <td>@producto.id</td>
+                    <td>@producto.nombre</td>
+                    <td>@producto.categoriaId</td>
+                    <td>@producto.marca</td>
+                    <td>@producto.modelo</td>
+                    <td>@producto.precio</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<a asp-page="./Index">Volver al listado</a>

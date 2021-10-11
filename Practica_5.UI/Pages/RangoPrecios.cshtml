@@ -1,0 +1,35 @@
+﻿@page
+@model Practica_5.UI.Pages.RangoPreciosModel
+@{
+}
+
+<h1>Productos con precios entre 3,000.00 - 5,000.00</h1>
+<br />
+<div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Id Categoria</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var producto in Model.Productos)
+            {
+                <tr>
+                    <td>@producto.id</td>
+                    <td>@producto.nombre</td>
+                    <td>@producto.categoriaId</td>
+                    <td>@producto.marca</td>
+                    <td>@producto.modelo</td>
+                    <td>@producto.precio</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<a asp-page="./Index">Volver al listado</a>

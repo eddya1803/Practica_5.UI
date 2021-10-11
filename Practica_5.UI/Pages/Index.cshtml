@@ -1,0 +1,40 @@
+﻿@page 
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Lista completa de productos</h1>
+</div>
+<br />
+<div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Id Categoria</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var producto in Model.Productos)
+            {
+                <tr>
+                    <td>@producto.id</td>
+                    <td>@producto.nombre</td>
+                    <td>@producto.categoriaId</td>
+                    <td>@producto.marca</td>
+                    <td>@producto.modelo</td>
+                    <td>@producto.precio</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-page="./PorCategoria" class="btn btn-info" >Buscar por Categoria</a>
+    <a asp-page="./RangoPrecios" class="btn btn-success">Precio entre 3,000 y 5,000</a>
+    <a asp-page="./NombresCategorias" class="btn btn-warning">Categorias de los registrados</a>
+</div>
